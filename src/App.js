@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import { supabase } from './supabaseClient';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  // accessing DBs/APIs requires async/await
+  const fetchTodosc = async () => {
+    // select * from todos
+    const {data, error} = await supabase
+    .from('todos')
+    .select('*')
+    .order('id',{ascending:true})
+  }
+
+  const addTodo = async () => {
+
+  }
+
+  const updateTodo = async () => {
+
+  }
+
+  const toggleCompletion = async () => {
+
+  } 
+
+  const deleteTodo = async () => {
+
+  }
 }
 
 export default App;
